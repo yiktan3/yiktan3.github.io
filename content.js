@@ -57,7 +57,7 @@ window.PORTFOLIO_CONTENT = {
 
     // CONTACT panel inside the computer screen
     contact: {
-      name: "LEUNG YIKTAN",
+      name: "",
       email: "qyiktandmu@gmail.com",
     }
   },
@@ -82,12 +82,12 @@ window.PORTFOLIO_CONTENT = {
     subtitle: "ILLUSTRATIONS / 2023",
     captions: [
       "01 / DRAWING",
-      "04 / DRAWING",
-      "07 / DRAWING",
       "02 / DRAWING",
+      "03 / DRAWING",
+      "04 / DRAWING",
       "05 / DRAWING",
       "06 / DRAWING",
-      "03 / DRAWING"
+      "07 / DRAWING"
     ],
     closeButton: "CLOSE ×"
   },

@@ -63,19 +63,28 @@
         <div class="bar-title">ANIMATION ARCHIVE · SELECTED WORKS</div>
       </div>
       <div class="grid">
-        <figure class="tile"><video src="animation/original.mp4" controls playsinline preload="metadata"></video><span class="num">01</span></figure>
-        <figure class="tile"><video src="animation/fan-02.mp4" controls playsinline preload="metadata"></video><span class="num">02</span></figure>
-        <figure class="tile"><video src="animation/fan-03.mp4" controls playsinline preload="metadata"></video><span class="num">03</span></figure>
-        <figure class="tile"><video src="animation/fan-04.mp4" controls playsinline preload="metadata"></video><span class="num">04</span></figure>
-        <figure class="tile"><video src="animation/fan-05.mp4" controls playsinline preload="metadata"></video><span class="num">05</span></figure>
-        <figure class="tile"><video src="animation/fan-06.mp4" controls playsinline preload="metadata"></video><span class="num">06</span></figure>
-        <figure class="tile"><video src="animation/fan-07.mp4" controls playsinline preload="metadata"></video><span class="num">07</span></figure>
+        <figure class="tile"><video src="animation/original.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">01</span></figure>
+        <figure class="tile"><video src="animation/fan-02.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">02</span></figure>
+        <figure class="tile"><video src="animation/fan-03.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">03</span></figure>
+        <figure class="tile"><video src="animation/fan-04.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">04</span></figure>
+        <figure class="tile"><video src="animation/fan-05.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">05</span></figure>
+        <figure class="tile"><video src="animation/fan-06.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">06</span></figure>
+        <figure class="tile"><video src="animation/fan-07.mp4" controls autoplay muted loop playsinline preload="metadata"></video><span class="num">07</span></figure>
       </div>
       <div class="caption">SEVEN SELECTED ANIMATIONS · ORIGINAL ASPECT RATIOS · CLICK TO PLAY WITH SOUND</div>
     </section>
     <section class="below"><h1>Animation</h1><p>ORIGINAL WORK · FAN-MADE WORKS · 3D ANIMATION</p></section>
   </main>
   <script src="./content.js"></script>
+  <script>
+    document.querySelectorAll('.grid video').forEach(video => {
+      video.muted = true;
+      video.defaultMuted = true;
+      const startPlayback = () => video.play().catch(() => {});
+      if (video.readyState >= 2) startPlayback();
+      else video.addEventListener('canplay', startPlayback, { once: true });
+    });
+  </script>
   <script src="./site-nav.js"></script>
   <script src="./content-loader.js"></script>
 </body>

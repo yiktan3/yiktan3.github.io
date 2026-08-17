@@ -69,9 +69,13 @@
       tools.append(heading, list);
     }
 
-    text('.contact-card h2', H.contact.name);
+    const contactHeading = one('.contact-card h2');
+    if (contactHeading) {
+      if (H.contact.name) contactHeading.textContent = H.contact.name;
+      else contactHeading.remove();
+    }
     const contact = one('.contact-card p');
-    if (contact) linesElement(contact, [H.contact.phone, H.contact.email, H.contact.whatsapp].join('\n'));
+    if (contact) linesElement(contact, [H.contact.phone, H.contact.email, H.contact.whatsapp].filter(Boolean).join('\n'));
     text('.mini-back', H.interactionBack);
   }
 
