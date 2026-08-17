@@ -243,7 +243,8 @@
       <span class="visually-hidden">${social.instagramLabel || 'Instagram'}</span>
     `;
     footer.append(link);
-    document.body.append(footer);
+    const pageSurface = document.querySelector('main') || document.body;
+    pageSurface.append(footer);
   }
 
   applyNavigation();
