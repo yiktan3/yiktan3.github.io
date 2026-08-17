@@ -51,12 +51,7 @@
   function applyHome() {
     const H = C.home;
     setTitle(H.browserTitle);
-    const barSpans = all('.window-bar > span');
-    if (barSpans[1]) barSpans[1].textContent = H.desktopLabel;
-    if (barSpans[2]) barSpans[2].textContent = H.desktopSize;
     text('.start', H.startButton);
-    text('.screen-title', H.screenTitle);
-    text('.drag-hint', H.editHint);
     texts('.card-back', [C.navigation.back, C.navigation.back]);
 
     lines('.about-card h2', H.about.heading);
@@ -92,14 +87,6 @@
   function applyAnimation() {
     const A = C.animationPage;
     setTitle(A.browserTitle);
-    text('.edit', A.editButton);
-    text('.panel b', A.editHeading);
-    all('.panel label').forEach((label, index) => {
-      if (A.videoLabels[index] === undefined) return;
-      const input = label.querySelector('input');
-      label.replaceChildren(document.createTextNode(A.videoLabels[index]));
-      if (input) label.append(input);
-    });
     text('.bar-title', A.windowTitle);
     texts('.grid .num', A.videoLabels);
     text('.window .caption', A.caption);
@@ -201,12 +188,6 @@
     }
     texts('.archive-three .phone-card figcaption', P3.filterLabels);
 
-    const E = M.editor;
-    text('.edit-toggle', E.openButton);
-    text('.editor strong', E.heading);
-    const labels = [E.titleLabel, E.subtitleLabel, E.descriptionLabel, E.mainVideoLabel, E.preview01Label, E.preview02Label, ...E.filterLabels];
-    texts('.editor label', labels);
-    text('.editor #apply', E.applyButton);
   }
 
   function applyTravelBook() {

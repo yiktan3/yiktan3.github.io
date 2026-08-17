@@ -33,12 +33,8 @@ window.PORTFOLIO_CONTENT = {
   // HOME PAGE
   // ==============================================================
   home: {
-    browserTitle: "qyiktandmu",
-    desktopLabel: "Desktop Portfolio",
-    desktopSize: "1200",
+    browserTitle: "Yiktan's Portfolio",
     startButton: ">START<",
-    screenTitle: "qyiktandmu",
-    editHint: "Double-click text to edit",
     interactionBack: "← BACK",
 
     // ABOUT panel inside the computer screen
@@ -63,7 +59,6 @@ window.PORTFOLIO_CONTENT = {
   // ==============================================================
   animationPage: {
     browserTitle: "Animation Archive",
-    editHeading: "Animation videos",
     windowTitle: "ANIMATION ARCHIVE ",
     videoLabels: ["01", "02", "03", "04", "05", "06", "07"],
     heading: "Animation",
@@ -182,20 +177,6 @@ window.PORTFOLIO_CONTENT = {
       introductionTitle: "IG filter Virtual Jewelry",
       introduction: "is a series of four AR face filters exploring jewelry beyond physical materials. Inspired by metallic accessories and futuristic fashion, I designed digital ornaments that transform the face into a space for wearable, virtual objects.",
       filterLabels: ["virtual butterfly", "virtual head wings", "virtual flower", " virtual mask"]
-    },
-
-    // Small content-editing panel labels
-    editor: {
-      openButton: "EDIT CONTENT",
-      heading: "Media Art content",
-      titleLabel: "Project 01 title",
-      subtitleLabel: "Project 01 subtitle",
-      descriptionLabel: "Project 01 description",
-      mainVideoLabel: "Main video",
-      preview01Label: "Preview video 01",
-      preview02Label: "Preview video 02",
-      filterLabels: ["IG Filter 01", "IG Filter 02", "IG Filter 03", "IG Filter 04"],
-      applyButton: "APPLY"
     }
   },
 
@@ -213,4 +194,3 @@ window.PORTFOLIO_CONTENT = {
     innerCover: "INNER COVER"
   }
 };
-
