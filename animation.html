@@ -81,8 +81,8 @@
       video.muted = true;
       video.defaultMuted = true;
       const startPlayback = () => video.play().catch(() => {});
-      if (video.readyState >= 2) startPlayback();
-      else video.addEventListener('canplay', startPlayback, { once: true });
+      startPlayback();
+      if (video.readyState < 2) video.addEventListener('canplay', startPlayback, { once: true });
     });
   </script>
   <script src="./site-nav.js"></script>
