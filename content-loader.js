@@ -211,6 +211,41 @@
     });
   }
 
+  function addSocialFooter() {
+    const social = C.social;
+    if (!social?.instagramUrl || document.querySelector('.site-social-footer')) return;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .site-social-footer{position:relative;z-index:20;display:flex;justify-content:center;align-items:center;width:100%;padding:64px 18px 52px;color:#111}
+      .site-social-footer a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:inherit;text-decoration:none;transition:transform .22s ease,opacity .22s ease}
+      .site-social-footer a:hover{transform:translateY(-3px);opacity:.68}
+      .site-social-footer a:focus-visible{outline:2px solid currentColor;outline-offset:6px;border-radius:9px}
+      .site-social-footer svg{display:block;width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+      .site-social-footer .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      @media(max-width:700px){.site-social-footer{padding:46px 12px 38px}.site-social-footer a{width:40px;height:40px}.site-social-footer svg{width:30px;height:30px}}
+    `;
+    document.head.append(style);
+
+    const footer = document.createElement('footer');
+    footer.className = 'site-social-footer';
+    const link = document.createElement('a');
+    link.href = social.instagramUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', social.instagramLabel || 'Instagram');
+    link.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+        <circle cx="12" cy="12" r="4.25"></circle>
+        <circle cx="17.45" cy="6.65" r=".75" fill="currentColor" stroke="none"></circle>
+      </svg>
+      <span class="visually-hidden">${social.instagramLabel || 'Instagram'}</span>
+    `;
+    footer.append(link);
+    document.body.append(footer);
+  }
+
   applyNavigation();
   const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   if (page === 'index.html' || page === 'home.html') applyHome();
@@ -219,4 +254,5 @@
   if (page === 'graphic-design.html') applyGraphicDesign();
   if (page === 'media-art-surface-level.html') applyMediaArt();
   if (page === 'travel-book.html') applyTravelBook();
+  addSocialFooter();
 })();

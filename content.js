@@ -30,6 +30,14 @@ window.PORTFOLIO_CONTENT = {
   },
 
   // ==============================================================
+  // SOCIAL LINK — appears at the bottom of every page
+  // ==============================================================
+  social: {
+    instagramUrl: "https://www.instagram.com/qyiktandmu11/",
+    instagramLabel: "Instagram — @qyiktandmu11"
+  },
+
+  // ==============================================================
   // HOME PAGE
   // ==============================================================
   home: {
