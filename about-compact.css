@@ -1,0 +1,9 @@
+.about-card{padding:clamp(68px,8vw,84px) 34px 18px;overflow-y:auto;align-items:flex-start}
+.about-card .card-back{left:22px;top:20px;font-size:15px}
+.about-card .info-inner{width:100%;max-width:650px;margin:0 auto;transform:none;text-align:left}
+.about-card .info-inner h2{font-size:clamp(26px,3.2vw,36px);line-height:1.02;margin:0 0 13px;text-align:left}
+.about-card .info-inner h3{max-width:570px;font-size:clamp(17px,2.05vw,22px);line-height:1.22;margin:0 0 17px;text-align:left}
+.about-card .info-inner p{max-width:620px;font-size:clamp(14px,1.58vw,17px);line-height:1.38;margin:0 0 14px;text-align:left}
+.about-card .info-inner p:last-child{font-size:clamp(13px,1.4vw,16px);margin-top:18px;margin-bottom:0}
+.about-card .about-tools{width:100%;margin:16px auto 0}
+@media(max-width:700px){.about-card{padding:clamp(62px,16vw,74px) 14px 12px}.about-card .info-inner h2{font-size:clamp(23px,7.2vw,29px)}.about-card .info-inner h3{font-size:15px;margin-bottom:12px}.about-card .info-inner p{font-size:12px;line-height:1.32;margin-bottom:9px}.about-card .info-inner p:last-child{font-size:11px;margin-top:11px}.about-card .about-tools{margin-top:10px}}

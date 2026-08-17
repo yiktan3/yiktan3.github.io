@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>To Record My First Time Solo Trip</title>
+<link rel="stylesheet" href="./site-nav.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e9e5dc;color:#111;font-family:Arial,sans-serif}
+.intro{max-width:1180px;margin:auto;padding:50px 28px 20px}
+.kicker{font:11px "Courier New";letter-spacing:.15em}
+.intro h1{font-size:clamp(44px,7vw,96px);line-height:.84;letter-spacing:-.07em;margin:18px 0 12px}
+.intro p{font:12px/1.6 "Courier New"}
+.reader{max-width:1180px;margin:15px auto 75px;padding:0 24px}
+.book-stage{min-height:min(78vh,760px);display:flex;align-items:center;justify-content:center;perspective:2400px}
+.book{position:relative;width:min(440px,78vw);aspect-ratio:436.535/612.283;filter:drop-shadow(0 24px 24px #0003);transition:width .45s,transform .3s;transform-style:preserve-3d}
+.book.open{width:min(850px,92vw);aspect-ratio:873.07/612.283}
+.book img{display:none;position:absolute;top:0;width:100%;height:100%;object-fit:contain;background:#fff;border:0;transition:transform .28s,filter .28s;backface-visibility:hidden}
+.book img.single{display:block;left:0}
+.book.open img.left-page,.book.open img.right-page{display:block;width:50%;height:100%}
+.book.open img.left-page{left:0;clip-path:inset(0 1px 0 0)}
+.book.open img.right-page{left:50%;clip-path:inset(0 0 0 1px)}
+.inner-sheet{display:none;position:absolute;top:0;width:50%;height:100%;background:#b0b8bc;border:0}
+.book.open.gray-left .inner-sheet{display:block;left:0}
+.book.open.gray-right .inner-sheet{display:block;left:50%}
+.book.open:after{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;transform:translateX(-.5px);background:#00000016;box-shadow:-3px 0 8px #00000010,3px 0 8px #00000010;z-index:8;pointer-events:none}
+.corner{position:absolute;bottom:0;width:22%;height:27%;z-index:60;cursor:pointer;border:0;background:transparent;padding:0;appearance:none;-webkit-appearance:none;outline:0;color:transparent}
+.corner-left{left:0}.corner-right{right:0}
+.book.peel-right img.right-page,.book.peel-right img.single{transform-origin:left bottom;transform:perspective(1600px) rotateY(-7deg) rotateZ(-.45deg);clip-path:polygon(0 0,100% 0,100% 88%,93% 100%,0 100%);filter:drop-shadow(-12px 10px 9px #0004)}
+.book.peel-left img.left-page,.book.peel-left img.single{transform-origin:right bottom;transform:perspective(1600px) rotateY(7deg) rotateZ(.45deg);clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 88%);filter:drop-shadow(12px 10px 9px #0004)}
+.turn-sheet{position:absolute;top:0;width:50%;height:100%;z-index:55;transform-style:preserve-3d;pointer-events:none;will-change:transform,filter;filter:drop-shadow(0 13px 13px #0006)}
+.turn-sheet.forward{right:0;transform-origin:left center;animation:sheetForward 1.22s cubic-bezier(.24,.72,.14,1) forwards}
+.turn-sheet.backward{left:0;transform-origin:right center;animation:sheetBackward 1.22s cubic-bezier(.24,.72,.14,1) forwards}
+.turn-face{position:absolute;inset:0;background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:contain;border:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.turn-front{transform:translateZ(1px)}
+.turn-back{transform:rotateY(180deg) translateZ(1px)}
+.turn-face:after{content:"";position:absolute;inset:-2px;pointer-events:none}
+.forward .turn-front:after{background:linear-gradient(90deg,#0000 0 39%,#fff9 61%,#343434a6 89%,#000c);animation:frontShade 1.22s ease-in-out forwards}
+.forward .turn-back:after{background:linear-gradient(90deg,#000b,#2a2a2a88 10%,#fff8 48%,#0000 72%);animation:backShade 1.22s ease-in-out forwards}
+.backward .turn-front:after{background:linear-gradient(270deg,#0000 0 39%,#fff9 61%,#343434a6 89%,#000c);animation:frontShade 1.22s ease-in-out forwards}
+.backward .turn-back:after{background:linear-gradient(270deg,#000b,#2a2a2a88 10%,#fff8 48%,#0000 72%);animation:backShade 1.22s ease-in-out forwards}
+.turn-sheet:after{content:"";position:absolute;top:2%;bottom:2%;width:22%;border-radius:62% 26% 26% 62%;background:linear-gradient(90deg,#fff0,#fff9 30%,#5559 74%,#000a);filter:blur(3px);opacity:0;animation:curlBand 1.22s ease-in-out}
+.turn-sheet.forward:after{right:-1%}.turn-sheet.backward:after{left:-1%;transform:scaleX(-1)}
+@keyframes sheetForward{0%{transform:perspective(1900px) rotateY(0) translateZ(0);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}18%{transform:perspective(1900px) rotateY(-19deg) translateY(-3px) scaleX(.985);clip-path:polygon(0 0,100% 0,100% 89%,96% 96%,89% 100%,0 100%)}46%{transform:perspective(1900px) rotateY(-87deg) translateY(-7px) scaleX(.91);clip-path:polygon(0 0,100% 1%,98% 71%,88% 93%,68% 100%,0 100%)}72%{transform:perspective(1900px) rotateY(-153deg) translateY(-2px) scaleX(.97);clip-path:polygon(0 0,100% 0,100% 100%,24% 98%,7% 89%)}100%{transform:perspective(1900px) rotateY(-180deg);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+@keyframes sheetBackward{0%{transform:perspective(1900px) rotateY(0) translateZ(0);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}18%{transform:perspective(1900px) rotateY(19deg) translateY(-3px) scaleX(.985);clip-path:polygon(0 0,100% 0,100% 100%,11% 100%,4% 96%,0 89%)}46%{transform:perspective(1900px) rotateY(87deg) translateY(-7px) scaleX(.91);clip-path:polygon(0 1%,100% 0,100% 100%,32% 100%,12% 93%,2% 71%)}72%{transform:perspective(1900px) rotateY(153deg) translateY(-2px) scaleX(.97);clip-path:polygon(0 0,100% 0,93% 89%,76% 98%,0 100%)}100%{transform:perspective(1900px) rotateY(180deg);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+@keyframes frontShade{0%,100%{opacity:0}21%{opacity:.3}49%{opacity:1}76%{opacity:.26}}
+@keyframes backShade{0%,18%{opacity:0}49%{opacity:1}80%{opacity:.35}100%{opacity:0}}
+@keyframes curlBand{0%,100%{opacity:0;transform:scaleX(.2)}37%,60%{opacity:1;transform:scaleX(1.25)}}
+.counter{text-align:center;font:11px "Courier New";letter-spacing:.11em;margin-top:16px;color:#555}
+.hint{text-align:center;font:10px "Courier New";letter-spacing:.12em;margin-top:9px}
+@media(max-width:650px){.book-stage{min-height:62vh}.corner{width:28%;height:28%}.intro{padding-top:34px}}
+</style>
+</head>
+<body>
+<nav class="global-nav"><a class="nav-home" href="./graphic-design.html">&#8592; BACK</a><div class="global-portfolio"><button type="button">Portfolio</button><div class="global-menu"><a href="./media-art-surface-level.html">Media Art</a><a href="./graphic-design.html">Graphic Design</a><a href="./animation.html">Animation</a><a href="./drawings.html">Drawings</a></div></div><a href="./index.html#about">About</a><a href="./index.html#contact">Contact</a></nav>
+<header class="intro"><div class="kicker">03 / GRAPHIC DESIGN - BOOK DESIGN</div><h1>TO RECORD MY FIRST TIME SOLO TRIP</h1><p>EDITORIAL DESIGN &middot; TRAVEL BOOK</p></header>
+<main class="reader"><div class="book-stage"><div class="book"><div class="inner-sheet"></div><button class="corner corner-left" aria-label="Turn to previous spread"></button><button class="corner corner-right" aria-label="Turn to next spread"></button></div></div><div class="counter"></div><p class="hint">CLICK THE LOWER PAGE CORNERS TO TURN</p></main>
+<script src="./content.js"></script><script>
+const book=document.querySelector('.book');
+for(let i=1;i<=48;i++){const img=document.createElement('img');img.src='graphic-design/travel-book/page-'+String(i).padStart(2,'0')+'.jpg';img.alt='Travel book page '+i;book.insertBefore(img,book.querySelector('.inner-sheet'))}
+const pages=[...book.querySelectorAll('img')],counter=document.querySelector('.counter'),leftCorner=document.querySelector('.corner-left'),rightCorner=document.querySelector('.corner-right');const bookCopy=window.PORTFOLIO_CONTENT?.travelBookPage||{};
+const spreads=[{left:null,right:2}];for(let left=3;left<=46;left+=2)spreads.push({left,right:left+1<=46?left+1:null});
+const backState=spreads.length+1;let state=0,busy=false;
+function spreadAt(n){return n>0&&n<backState?spreads[n-1]:null}
+function render(){pages.forEach(p=>p.className='');book.className='book';if(state===0){pages[0].className='single';counter.textContent=bookCopy.frontCover||'FRONT COVER'}else if(state===backState){pages[47].src='graphic-design/travel-book/back-cover-collage.png';pages[47].className='single';counter.textContent=bookCopy.backCover||'BACK COVER'}else{book.classList.add('open');const s=spreadAt(state);if(s.left===null)book.classList.add('gray-left');else pages[s.left].className='left-page';if(s.right===null)book.classList.add('gray-right');else pages[s.right].className='right-page';counter.textContent=(s.left===null?(bookCopy.innerCover||'INNER COVER'):String(s.left+1).padStart(2,'0'))+' - '+(s.right===null?(bookCopy.innerCover||'INNER COVER'):String(s.right+1).padStart(2,'0'))}leftCorner.hidden=state===0;rightCorner.hidden=state===backState}
+function pageVisual(n,side){if(n===0)return side==='right'?{src:pages[0].src,color:'#fff'}:{src:'',color:'#b0b8bc'};if(n===backState)return{src:'graphic-design/travel-book/back-cover-collage.png',color:'#b0b8bc'};const s=spreadAt(n),idx=side==='left'?s.left:s.right;return idx===null?{src:'',color:'#b0b8bc'}:{src:pages[idx].src,color:'#fff'}}
+function applyVisual(face,visual){face.style.backgroundColor=visual.color;face.style.backgroundImage=visual.src?'url("'+visual.src+'")':'none'}
+function turn(direction){if(busy)return;const target=state+(direction==='forward'?1:-1);if(target<0||target>backState)return;busy=true;const front=direction==='forward'?pageVisual(state,'right'):pageVisual(state,'left');const back=direction==='forward'?pageVisual(target,'left'):pageVisual(target,'right');const leaf=document.createElement('div');leaf.className='turn-sheet '+direction;const frontFace=document.createElement('div'),backFace=document.createElement('div');frontFace.className='turn-face turn-front';backFace.className='turn-face turn-back';applyVisual(frontFace,front);applyVisual(backFace,back);leaf.append(frontFace,backFace);state=target;render();book.appendChild(leaf);setTimeout(()=>{leaf.remove();busy=false},1080)}
+rightCorner.onclick=e=>{e.stopPropagation();turn('forward')};leftCorner.onclick=e=>{e.stopPropagation();turn('backward')};rightCorner.onmouseenter=()=>book.classList.add('peel-right');rightCorner.onmouseleave=()=>book.classList.remove('peel-right');leftCorner.onmouseenter=()=>book.classList.add('peel-left');leftCorner.onmouseleave=()=>book.classList.remove('peel-left');addEventListener('keydown',e=>{if(e.key==='ArrowRight')turn('forward');if(e.key==='ArrowLeft')turn('backward')});render();
+</script><script src="./site-nav.js"></script>
+<script src="./content-loader.js"></script></body></html>

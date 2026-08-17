@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Graphic Design Archive</title>
+<link rel="stylesheet" href="./site-nav.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3efe5;color:#111;font-family:Arial,sans-serif}
+.page{max-width:1320px;margin:auto;padding:50px clamp(22px,5vw,70px) 130px}
+.head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid;padding-bottom:22px}
+.head h1{font-size:clamp(58px,9vw,120px);line-height:.82;letter-spacing:-.075em;font-weight:500;margin:0}
+.head p{font:11px/1.6 "Courier New";text-align:right;letter-spacing:.1em}
+.desk{position:relative;display:flex;flex-direction:column;gap:110px;margin-top:60px;padding:20px 1% 90px;background-image:linear-gradient(#11111108 1px,transparent 1px),linear-gradient(90deg,#11111108 1px,transparent 1px);background-size:72px 72px}
+.project{position:relative}.p1{width:min(760px,67vw)}.p2{width:min(650px,58vw);align-self:flex-end}
+.stack{position:relative;height:650px;cursor:pointer}.sheet{position:absolute;background:#fffdf7;padding:9px;border:1px solid #0003;box-shadow:0 8px 18px #0002;transition:.65s cubic-bezier(.2,.8,.2,1)}.sheet img{display:block;width:100%;height:100%;object-fit:cover}
+.p1 .sheet{width:66%;aspect-ratio:1288/724;left:15%;top:55px}.p1 .sheet:nth-child(1){transform:rotate(-7deg);z-index:1}.p1 .sheet:nth-child(2){transform:translate(14%,8%) rotate(5deg);z-index:2}.p1 .sheet:nth-child(3){transform:translate(25%,17%) rotate(-2deg);z-index:3}.p1 .sheet:nth-child(4){transform:translate(7%,26%) rotate(7deg);z-index:4}.p1 .sheet:nth-child(5){transform:translate(-4%,34%) rotate(-4deg);z-index:5}.stack:hover .sheet{box-shadow:0 20px 38px #0003}.p1 .stack:hover .sheet:nth-child(1){transform:translate(-10%,-10%) rotate(-6deg)}.p1 .stack:hover .sheet:nth-child(2){transform:translate(32%,-1%) rotate(4deg)}.p1 .stack:hover .sheet:nth-child(3){transform:translate(42%,32%) rotate(-2deg)}.p1 .stack:hover .sheet:nth-child(4){transform:translate(-6%,43%) rotate(6deg)}.p1 .stack:hover .sheet:nth-child(5){transform:translate(22%,48%) rotate(-3deg)}
+.meta{position:absolute;bottom:0;display:grid;grid-template-columns:40px 1fr;gap:12px}.meta small{font:11px "Courier New"}.meta h2{font-size:clamp(28px,4vw,50px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase;margin:0 0 8px}.meta p{font:10px "Courier New";letter-spacing:.1em}.view{font:10px "Courier New";letter-spacing:.12em;opacity:0}.project:hover .view{opacity:1}
+.p2 .sheet{width:62%;aspect-ratio:2/3;top:30px;transition:transform .72s cubic-bezier(.2,1.32,.28,1),box-shadow .45s ease}.p2 .sheet:nth-child(1){left:3%;transform:rotate(-6deg)}.p2 .sheet:nth-child(2){right:5%;transform:rotate(4deg)}.p2 .stack:hover .sheet:nth-child(1),.p2.expanded .sheet:nth-child(1){transform:translate(-13%,-4%) rotate(-8deg)}.p2 .stack:hover .sheet:nth-child(2),.p2.expanded .sheet:nth-child(2){transform:translate(14%,6%) rotate(6deg)}.p2 .meta{right:0}
+.inline-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-height:0;opacity:0;overflow:hidden;transform:translateY(-18px);transition:max-height .8s cubic-bezier(.2,.8,.2,1),opacity .35s ease,transform .65s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.project.expanded .inline-gallery{max-height:4200px;opacity:1;transform:none;pointer-events:auto;margin-top:34px;padding:8px 0 4px}
+.p2 .inline-gallery{align-items:start}.p2 .inline-gallery figure{align-self:start;height:auto}.p2.expanded .inline-gallery{animation:p2GalleryBounce .78s cubic-bezier(.18,.9,.24,1.12) both}
+@keyframes p2GalleryBounce{0%{opacity:0;transform:translateY(-24px) scale(.965)}62%{opacity:1;transform:translateY(5px) scale(1.012)}82%{transform:translateY(-2px) scale(.997)}100%{opacity:1;transform:none}}
+.inline-gallery figure{margin:0;background:#fffdf7;padding:10px;border:1px solid #0003;box-shadow:0 10px 24px #0002}.inline-gallery img{display:block;width:100%;height:auto}
+.inline-gallery figure:nth-child(3n+2){transform:translateY(26px) rotate(.7deg)}.inline-gallery figure:nth-child(3n){transform:rotate(-.6deg)}
+.collapse{grid-column:1/-1;justify-self:end;margin-top:24px;padding:0 0 4px;border:0;border-bottom:1px solid;background:transparent;color:#111;font:11px "Courier New";letter-spacing:.1em;cursor:pointer}.project.expanded .view{opacity:0}
+.book-project{position:relative;isolation:isolate;max-width:1120px;min-height:980px;margin:20px auto 100px;padding:50px clamp(22px,5vw,70px);border-top:1px solid #111;overflow:hidden}
+.book-project:before{content:"";position:absolute;z-index:-1;inset:68px -10px 12px;background:url("graphic-design/travel-book/back-collage.png") center bottom/contain no-repeat;opacity:.72;pointer-events:none}
+.book-project .book-meta{position:relative;display:grid;grid-template-columns:55px 1fr;gap:14px;margin-bottom:34px}.book-project small{font:11px "Courier New"}.book-project h2{font-size:clamp(36px,6vw,76px);line-height:.9;letter-spacing:-.06em;margin:0 0 10px;text-transform:uppercase}.book-project p{font:11px "Courier New";letter-spacing:.1em}
+.book-cover{position:relative;z-index:1;display:block;width:min(360px,75vw);margin:0 auto;transform:rotate(-3deg);background:#afb8bc;padding:10px;box-shadow:0 18px 32px #0003;transition:.35s}.book-cover:hover{transform:rotate(0) translateY(-8px);box-shadow:0 28px 42px #0004}.book-cover img{display:block;width:100%;height:auto}.book-link{position:relative;z-index:1;text-align:center;margin-top:26px}.book-link a{color:#111;font:900 14px Arial Black,Arial;text-decoration:none;border-bottom:2px solid}
+.journal-layer{position:relative;z-index:2;min-height:680px;display:flex;flex-direction:column;align-items:center;justify-content:center;perspective:2400px}
+.journal-book{position:relative;width:min(360px,75vw);aspect-ratio:436.535/612.283;transform-style:preserve-3d;filter:drop-shadow(0 24px 24px #0003);transition:width .58s cubic-bezier(.22,.7,.2,1),transform .58s cubic-bezier(.22,.7,.2,1);will-change:width,transform}
+.journal-book.open,.journal-book.preparing-open{width:min(850px,88vw);aspect-ratio:873.07/612.283}
+.journal-book img{display:none;position:absolute;top:0;width:100%;height:100%;object-fit:contain;background:#fffdf7;backface-visibility:hidden;transition:left .58s cubic-bezier(.22,.7,.2,1),width .58s cubic-bezier(.22,.7,.2,1),filter .28s,transform .28s}
+.journal-book img.single{display:block;left:0}.journal-book.preparing-open img.single{width:50%;left:50%}
+.journal-book.open img.left-page,.journal-book.open img.right-page{display:block;width:50%;height:100%}.journal-book.open img.left-page{left:0}.journal-book.open img.right-page{left:50%}
+.journal-inner{display:none;position:absolute;top:0;width:50%;height:100%;background:#b0b8bc}.journal-book.open.gray-left .journal-inner{display:block;left:0}.journal-book.open.gray-right .journal-inner{display:block;left:50%}
+.journal-book.open:after,.journal-book.preparing-open:after{content:"";position:absolute;z-index:12;left:50%;top:0;bottom:0;width:2px;transform:translateX(-1px);background:#3b342819;box-shadow:-8px 0 18px #0002,8px 0 18px #fff8;pointer-events:none}
+.journal-book:before{content:"";position:absolute;z-index:-1;inset:5px -5px -7px;border:1px solid #736d6228;background:#ded8c9;box-shadow:0 4px 0 #c9c1b0,0 8px 0 #aaa18e40;border-radius:1px;pointer-events:none}
+.journal-corner{position:absolute;z-index:70;bottom:0;width:24%;height:29%;border:0;background:transparent;cursor:pointer;color:transparent}.journal-prev-hit{left:0}.journal-next-hit{right:0}
+.journal-book.peel-right img.right-page,.journal-book.peel-right img.single{transform-origin:left bottom;transform:perspective(1600px) rotateY(-7deg) rotateZ(-.45deg);clip-path:polygon(0 0,100% 0,100% 88%,93% 100%,0 100%);filter:drop-shadow(-12px 10px 9px #0004)}
+.journal-book.peel-left img.left-page,.journal-book.peel-left img.single{transform-origin:right bottom;transform:perspective(1600px) rotateY(7deg) rotateZ(.45deg);clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 88%);filter:drop-shadow(12px 10px 9px #0004)}
+.journal-turn{position:absolute;top:0;width:50%;height:100%;z-index:60;transform-style:preserve-3d;pointer-events:none;will-change:transform,filter;filter:drop-shadow(0 13px 13px #0006)}
+.journal-turn.forward{right:0;transform-origin:left center;animation:journalForward .92s cubic-bezier(.22,.72,.16,1) forwards}.journal-turn.backward{left:0;transform-origin:right center;animation:journalBackward .92s cubic-bezier(.22,.72,.16,1) forwards}
+.journal-face{position:absolute;inset:0;background-color:#fffdf7;background-repeat:no-repeat;background-position:center;background-size:contain;backface-visibility:hidden;overflow:hidden}.journal-front{transform:translateZ(1px)}.journal-back{transform:rotateY(180deg) translateZ(1px)}.journal-face:after{content:"";position:absolute;inset:-2px;pointer-events:none}
+.forward .journal-front:after{background:linear-gradient(90deg,#0000 0 39%,#fff9 61%,#343434a6 89%,#000c);animation:journalShade .92s ease-in-out forwards}.forward .journal-back:after{background:linear-gradient(90deg,#000b,#2a2a2a88 10%,#fff8 48%,#0000 72%);animation:journalShade .92s ease-in-out forwards}.backward .journal-front:after{background:linear-gradient(270deg,#0000 0 39%,#fff9 61%,#343434a6 89%,#000c);animation:journalShade .92s ease-in-out forwards}.backward .journal-back:after{background:linear-gradient(270deg,#000b,#2a2a2a88 10%,#fff8 48%,#0000 72%);animation:journalShade .92s ease-in-out forwards}
+.journal-turn:after{content:"";position:absolute;top:2%;bottom:2%;width:22%;border-radius:62% 26% 26% 62%;background:linear-gradient(90deg,#fff0,#fff9 30%,#5559 74%,#000a);filter:blur(3px);opacity:0;animation:journalCurl .92s ease-in-out}.journal-turn.forward:after{right:-1%}.journal-turn.backward:after{left:-1%;transform:scaleX(-1)}
+@keyframes journalForward{0%{transform:perspective(1900px) rotateY(0) translateZ(0)}18%{transform:perspective(1900px) rotateY(-19deg) translateY(-3px) skewY(-.4deg) scaleX(.985)}48%{transform:perspective(1900px) rotateY(-89deg) translateY(-7px) skewY(-1.2deg) scaleX(.91)}74%{transform:perspective(1900px) rotateY(-154deg) translateY(-2px) skewY(.3deg) scaleX(.97)}100%{transform:perspective(1900px) rotateY(-180deg)}}
+@keyframes journalBackward{0%{transform:perspective(1900px) rotateY(0) translateZ(0)}18%{transform:perspective(1900px) rotateY(19deg) translateY(-3px) skewY(.4deg) scaleX(.985)}48%{transform:perspective(1900px) rotateY(89deg) translateY(-7px) skewY(1.2deg) scaleX(.91)}74%{transform:perspective(1900px) rotateY(154deg) translateY(-2px) skewY(-.3deg) scaleX(.97)}100%{transform:perspective(1900px) rotateY(180deg)}}
+@keyframes journalShade{0%,100%{opacity:0}22%{opacity:.35}50%{opacity:1}78%{opacity:.25}}@keyframes journalCurl{0%,100%{opacity:0;transform:scaleX(.2)}38%,60%{opacity:1;transform:scaleX(1.25)}}
+.journal-open{position:relative;z-index:3;margin-top:22px;padding:0 0 3px;border:0;border-bottom:2px solid;background:transparent;color:#111;font:900 14px Arial Black,Arial;cursor:pointer}.book-project.book-active .journal-open{display:none}
+.journal-nav{display:none;position:relative;z-index:3;width:min(850px,88vw);justify-content:space-between;align-items:center;margin-top:18px}.book-project.book-active .journal-nav{display:flex}.journal-nav button{border:0;border-bottom:1px solid;background:transparent;padding:0 0 3px;font:11px "Courier New";letter-spacing:.1em;cursor:pointer}.journal-counter{font:10px "Courier New";letter-spacing:.1em;color:#555}
+@media(max-width:760px){.head{display:block}.head p{text-align:left}.desk{gap:90px;padding-inline:0}.project{width:100%}.stack{height:570px}.inline-gallery{grid-template-columns:minmax(0,1fr);width:100%}.inline-gallery figure{min-width:0}.inline-gallery figure:nth-child(n){transform:none}.book-project{min-height:760px}.book-project:before{inset:150px -50px 40px;opacity:.56}.book-project .book-meta{grid-template-columns:36px 1fr}.journal-layer{min-height:500px}.journal-book.open,.journal-book.preparing-open,.journal-nav{width:min(850px,96vw)}.journal-corner{width:30%;height:32%}}
+@media(prefers-reduced-motion:reduce){.p2 .sheet,.p2 .inline-gallery{animation:none!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<nav class="global-nav"><a class="nav-home" href="#" onclick="event.preventDefault();history.back()">&larr; BACK</a><div class="global-portfolio"><button type="button">Portfolio</button><div class="global-menu"><a href="./media-art-surface-level.html">Media Art</a><a href="./graphic-design.html">Graphic Design</a><a href="./animation.html">Animation</a><a href="./drawings.html">Drawings</a></div></div><a href="./index.html#about">About</a><a href="./index.html#contact">Contact</a></nav>
+<main class="page">
+  <header class="head"><h1>GRAPHIC<br>DESIGN</h1><p>PRINTED MATTER / VISUAL SYSTEMS<br>SELECTED WORKS &middot; 2023&mdash;2026</p></header>
+  <section class="desk">
+    <article class="project p1"><div class="stack" data-expand="campaign" role="button" tabindex="0" aria-expanded="false"><figure class="sheet"><img src="graphic-design/campaign/shark.webp" alt="Campaign visual with sharks"></figure><figure class="sheet"><img src="graphic-design/campaign/fuel.webp" alt="Campaign visual about sustainable fuel"></figure><figure class="sheet"><img src="graphic-design/campaign/mushroom.webp" alt="Campaign visual with mushroom illustration"></figure><figure class="sheet"><img src="graphic-design/campaign/toilet.webp" alt="Campaign visual for World Toilet Day"></figure><figure class="sheet"><img src="graphic-design/campaign/112.jpg" alt="Christmas gift exchange campaign visual"></figure><div class="meta"><small>01</small><div><h2>Campaign Visuals<br>&amp; Social Media</h2><p>VISUAL CAMPAIGN &middot; 2026</p><span class="view">VIEW PROJECT &rarr;</span></div></div></div><div class="inline-gallery" data-content="campaign"><figure><img src="graphic-design/campaign/shark.webp" alt="Campaign visual with sharks"></figure><figure><img src="graphic-design/campaign/fuel.webp" alt="Campaign visual about sustainable fuel"></figure><figure><img src="graphic-design/campaign/mushroom.webp" alt="Campaign visual with mushroom illustration"></figure><figure><img src="graphic-design/campaign/toilet.webp" alt="Campaign visual for World Toilet Day"></figure><figure><img src="graphic-design/campaign/112.jpg" alt="Christmas gift exchange campaign visual"></figure><button class="collapse" type="button">CLOSE &times;</button></div></article>
+    <article class="project p2"><div class="stack" data-expand="typography" role="button" tabindex="0" aria-expanded="false"><figure class="sheet"><img src="graphic-design/typography/hero.webp" alt="Typography Poetics exhibition poster"></figure><figure class="sheet"><img src="graphic-design/typography/fortune-cookies.webp" alt="Typography Poetics exhibition object"></figure><div class="meta"><small>02</small><div><h2>Typography Poetics</h2><p>EXHIBITION VISUAL DESIGN &middot; 2023</p><span class="view">VIEW PROJECT &rarr;</span></div></div></div><div class="inline-gallery" data-content="typography"><figure><img src="graphic-design/typography/hero.webp" alt="Typography Poetics exhibition poster"></figure><figure><img src="graphic-design/typography/fortune-cookies.webp" alt="Typography Poetics exhibition object"></figure><figure><img src="graphic-design/typography/event-poster.webp" alt="Typography Poetics event poster"></figure><figure><img src="graphic-design/typography/text-frames.webp" alt="Typography Poetics text frames"></figure><figure><img src="graphic-design/typography/exhibition-wide.webp" alt="Typography Poetics exhibition view"></figure><figure><img src="graphic-design/typography/exhibition-detail.webp" alt="Typography Poetics exhibition detail"></figure><button class="collapse" type="button">CLOSE &times;</button></div></article>
+  </section>
+</main>
+<section class="book-project" id="travel-book">
+  <div class="book-meta"><small>03</small><div><h2>To Record My First Time Solo Trip</h2><p>BOOK DESIGN &middot; EDITORIAL DESIGN</p></div></div>
+  <div class="journal-layer"><div class="journal-book" aria-label="Interactive travel journal"><div class="journal-inner"></div><button class="journal-corner journal-prev-hit" type="button" aria-label="Turn to previous spread"></button><button class="journal-corner journal-next-hit" type="button" aria-label="Turn to next spread"></button></div><button class="journal-open" type="button">OPEN BOOK &rarr;</button><div class="journal-nav"><button class="journal-previous" type="button">&larr; PREVIOUS</button><span class="journal-counter">FRONT COVER</span><button class="journal-next" type="button">NEXT &rarr;</button></div></div>
+</section>
+<script src="./content.js"></script><script>
+document.querySelectorAll('[data-expand]').forEach(stack=>{
+  const project=stack.closest('.project');
+  const toggle=()=>{const open=project.classList.toggle('expanded');stack.setAttribute('aria-expanded',String(open))};
+  stack.addEventListener('click',toggle);
+  stack.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle()}});
+  project.querySelector('.collapse').addEventListener('click',()=>{project.classList.remove('expanded');stack.setAttribute('aria-expanded','false');stack.scrollIntoView({behavior:'smooth',block:'start'})});
+});
+</script>
+<script>
+const journalProject=document.querySelector('.book-project');
+const journal=document.querySelector('.journal-book');
+const journalOpen=document.querySelector('.journal-open');
+const journalCounter=document.querySelector('.journal-counter');
+const journalPrevHit=document.querySelector('.journal-prev-hit');
+const journalNextHit=document.querySelector('.journal-next-hit');
+const journalPrevious=document.querySelector('.journal-previous');
+const journalNext=document.querySelector('.journal-next');
+const journalCopy=window.PORTFOLIO_CONTENT?.graphicDesignPage?.project03||{};
+for(let number=1;number<=48;number++){
+  const image=document.createElement('img');
+  image.src='graphic-design/travel-book/page-'+String(number).padStart(2,'0')+'.jpg';
+  image.alt='Travel journal page '+number;
+  journal.insertBefore(image,journal.querySelector('.journal-inner'));
+}
+const journalPages=[...journal.querySelectorAll('img')];
+const journalSpreads=[{left:null,right:2}];
+for(let left=3;left<=45;left+=2)journalSpreads.push({left,right:left+1});
+const journalBackState=journalSpreads.length+1;
+let journalState=0,journalBusy=false;
+const journalSpreadAt=state=>state>0&&state<journalBackState?journalSpreads[state-1]:null;
+function renderJournal(){
+  journalPages.forEach(page=>page.className='');
+  journal.className='journal-book';
+  if(journalState===0){journalPages[0].className='single';journalCounter.textContent=journalCopy.frontCover||'FRONT COVER'}
+  else if(journalState===journalBackState){journalPages[47].src='graphic-design/travel-book/page-48.jpg';journalPages[47].className='single';journalCounter.textContent=journalCopy.backCover||'BACK COVER'}
+  else{
+    journal.classList.add('open');
+    const spread=journalSpreadAt(journalState);
+    if(spread.left===null)journal.classList.add('gray-left');else journalPages[spread.left].className='left-page';
+    if(spread.right===null)journal.classList.add('gray-right');else journalPages[spread.right].className='right-page';
+    const leftLabel=spread.left===null?(journalCopy.innerCover||'INNER COVER'):String(spread.left).padStart(2,'0');
+    const rightLabel=spread.right===null?(journalCopy.innerCover||'INNER COVER'):String(spread.right).padStart(2,'0');
+    journalCounter.textContent=leftLabel+' '+String.fromCharCode(8212)+' '+rightLabel;
+  }
+  journalPrevHit.hidden=journalState===0;
+  journalNextHit.hidden=journalState===journalBackState;
+  journalPrevious.disabled=journalState===0;
+  journalNext.disabled=journalState===journalBackState;
+}
+function journalVisual(state,side){
+  if(state===0)return side==='right'?{src:journalPages[0].src,color:'#fffdf7'}:{src:'',color:'#b0b8bc'};
+  if(state===journalBackState)return{src:'graphic-design/travel-book/page-48.jpg',color:'#b0b8bc'};
+  const spread=journalSpreadAt(state),index=side==='left'?spread.left:spread.right;
+  return index===null?{src:'',color:'#b0b8bc'}:{src:journalPages[index].src,color:'#fffdf7'};
+}
+function paintJournalFace(face,visual){face.style.backgroundColor=visual.color;face.style.backgroundImage=visual.src?'url("'+visual.src+'")':'none'}
+function performJournalTurn(direction){
+  const target=journalState+(direction==='forward'?1:-1);
+  const front=direction==='forward'?journalVisual(journalState,'right'):journalVisual(journalState,'left');
+  const back=direction==='forward'?journalVisual(target,'left'):journalVisual(target,'right');
+  const leaf=document.createElement('div'),frontFace=document.createElement('div'),backFace=document.createElement('div');
+  leaf.className='journal-turn '+direction;frontFace.className='journal-face journal-front';backFace.className='journal-face journal-back';
+  paintJournalFace(frontFace,front);paintJournalFace(backFace,back);leaf.append(frontFace,backFace);
+  const closing=target===0||target===journalBackState;
+  journalState=target;if(!closing)renderJournal();journal.appendChild(leaf);
+  setTimeout(()=>{leaf.remove();if(closing)renderJournal();journalBusy=false;if(journalState===0)journalProject.classList.remove('book-active')},940);
+}
+function turnJournal(direction){
+  if(journalBusy)return;
+  const target=journalState+(direction==='forward'?1:-1);if(target<0||target>journalBackState)return;
+  journalBusy=true;
+  if(journalState===0&&direction==='forward'){
+    journalProject.classList.add('book-active');journal.classList.add('preparing-open');
+    setTimeout(()=>performJournalTurn(direction),520);
+  }else performJournalTurn(direction);
+}
+journalOpen.addEventListener('click',()=>turnJournal('forward'));
+journalNextHit.addEventListener('click',event=>{event.stopPropagation();turnJournal('forward')});
+journalPrevHit.addEventListener('click',event=>{event.stopPropagation();turnJournal('backward')});
+journalNext.addEventListener('click',()=>turnJournal('forward'));journalPrevious.addEventListener('click',()=>turnJournal('backward'));
+journalNextHit.addEventListener('mouseenter',()=>journal.classList.add('peel-right'));journalNextHit.addEventListener('mouseleave',()=>journal.classList.remove('peel-right'));
+journalPrevHit.addEventListener('mouseenter',()=>journal.classList.add('peel-left'));journalPrevHit.addEventListener('mouseleave',()=>journal.classList.remove('peel-left'));
+addEventListener('keydown',event=>{if(!journalProject.classList.contains('book-active'))return;if(event.key==='ArrowRight')turnJournal('forward');if(event.key==='ArrowLeft')turnJournal('backward')});
+renderJournal();
+</script>
+<script src="./site-nav.js"></script>
+<script src="./content-loader.js"></script></body>
+</html>
+
+
+

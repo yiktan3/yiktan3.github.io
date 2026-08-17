@@ -1,0 +1,14 @@
+# Local QA captures and temporary browser/rendering files
+qa-*
+tmp-*/
+
+# Original working sources and duplicate media backups that are not used by the website
+sticker-source/
+assets/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
